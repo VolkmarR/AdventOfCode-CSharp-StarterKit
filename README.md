@@ -1,18 +1,18 @@
-# AdventOfCode StarterKit
+# AdventOfCode starter kit
 
-This project can be used as starterkit for the [AdventOfCode](https://www.AdventOfCode.com] competition. 
+This project can be used as starter kit for the [AdventOfCode](https://www.AdventOfCode.com) advent calendar. 
 
 ## Provision a new day
 
-To get started quickly, this starterkit assists you with the generator for initializing the 
-source code for the puzzles. Just run the application and enter the number of the day, your 
+To get started quickly, this starter kit assists you with a generator for initializing the 
+source code to solve the puzzles the day. Just run the application and enter the number of the day, you 
 want to initialize.
 
 The generator creates the following:
 - A new directory for the requested day
 - The boilerplate code for the solver
 - The Unit-Tests to execute the solver
-- An empty textfile called input.txt (will be opened in the standard texteditor)
+- An empty text file called input.txt (will be opened in the standard text editor)
 
 ## Implement the solver
 
@@ -31,11 +31,11 @@ protected override string Solve1(List<string> data)
 
 ## Executing the solvers
 
-To Execute the solvers, you have to use the generated unit tests. When you run the unit test 
-using the Test Explorer in Visual Studio. The unit tests load the input.txt, call the Solve method 
-and save the output to a text file called output1.txt or output2.txt.
+To Execute the solvers, you have to use the generated unit tests. You can run them using the Test Explorer 
+in Visual Studio. The unit tests load the input.txt, call the Solve method and save the output to a text 
+file called output1.txt or output2.txt.
 
-You can change the name of the input and output filename by passing alternative filename as paramenter.
+You can change the name of the input and output filename by passing alternative filename as parameter.
 
 ```csharp
 
