@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AdventOfCode.Base
 {
-    class DayProvisioning
+    class DayInitialization
     {
         public static void Execute(int day)
         {
@@ -19,7 +19,7 @@ namespace AdventOfCode.Base
             var dayDir = projectDir + @"\Day" + dayStr + "\\";
 
             if (Directory.Exists(dayDir))
-                Console.WriteLine($"Directory {dayDir} was allready created");
+                Console.WriteLine($"Directory {dayDir} was allready initialized");
 
             Directory.CreateDirectory(dayDir);
 
