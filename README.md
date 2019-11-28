@@ -1,14 +1,13 @@
 # AdventOfCode starter kit
 
-This project can be used as starter kit for the [AdventOfCode](https://www.AdventOfCode.com) advent calendar. Just click the "Use Template" button, enter a name for your repository and you are ready. 
+This template can be used as starter kit for the [AdventOfCode](https://www.AdventOfCode.com) advent calendar. Just click the "Use Template" button, enter a name for your repository and you are ready to code. 
 
-Using the starter kit, you can initialize the source code for new days very easily.
+To get your started quickly, the starter kit assists you with a generator for initializing the 
+source code to solve the puzzles.
 
 ## Initialize a new day
 
-To get started quickly, this starter kit assists you with a generator for initializing the 
-source code to solve the puzzles the day. Just run the application and enter the number of the day, you 
-want to initialize.
+Just run the application and enter the number of the day, you want to initialize.
 
 The generator creates the following:
 - A new directory for the requested day
@@ -18,7 +17,7 @@ The generator creates the following:
 
 ## Implement the solver
 
-After initializing a Day, you have to paste the input data from the website to the input.txt file 
+After initializing a day, you have to paste the input data from the website to the input.txt file 
 and implement the Solve1 and Solve2 methods. 
 
 ```csharp
