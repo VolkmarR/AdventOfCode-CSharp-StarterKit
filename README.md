@@ -12,11 +12,11 @@ The generator creates the following:
 - A new directory for the requested day
 - The boilerplate code for the solver
 - The Unit-Tests to execute the solver
-- An empty text file called input.txt (will be opened in the standard text editor)
+- An empty text file called input.txt (which will be opened in the standard text editor)
 
 ## Implement the solver
 
-After initializing a Day, you have to paste the input data the website to the input.txt file 
+After initializing a Day, you have to paste the input data from the website to the input.txt file 
 and implement the Solve1 and Solve2 methods. 
 
 ```csharp
