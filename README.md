@@ -1,8 +1,10 @@
 # AdventOfCode starter kit
 
-This project can be used as starter kit for the [AdventOfCode](https://www.AdventOfCode.com) advent calendar. 
+This project can be used as starter kit for the [AdventOfCode](https://www.AdventOfCode.com) advent calendar. Just click the "Use Template" button, enter a name for your repository and you are ready. 
 
-## Provision a new day
+Using the starter kit, you can initialize the source code for new days very easily.
+
+## Initialize a new day
 
 To get started quickly, this starter kit assists you with a generator for initializing the 
 source code to solve the puzzles the day. Just run the application and enter the number of the day, you 
