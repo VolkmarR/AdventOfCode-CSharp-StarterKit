@@ -1,4 +1,4 @@
-# AdventOfCode starter kit
+# AdventOfCode CSharp Starter Kit
 
 This template can be used as starter kit for the [AdventOfCode](https://www.AdventOfCode.com) advent calendar. Just click the "Use Template" button, enter a name for your repository and you are ready to code. 
 
