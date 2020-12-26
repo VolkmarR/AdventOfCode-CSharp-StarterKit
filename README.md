@@ -12,38 +12,53 @@ Just run the application and enter the number of the day, you want to initialize
 The generator creates the following:
 - A new directory for the requested day
 - The boilerplate code for the solver
-- The Unit-Tests to execute the solver
-- An empty text file called input.txt (which will be opened in the standard text editor)
+- The Unit-Tests to execute the solver for the example and the puzzle input
+- Two empty text files called input.txt and example.txt (which will be opened in the standard text editor)
 
 ## Implement the solver
 
-After initializing a day, you have to paste the input data from the website to the input.txt file 
-and implement the Solve1 and Solve2 methods. 
+After initializing a day, you have to copy the input data from the website and paste it to the input.txt file 
+and implement the Solve1 and Solve2 methods. If you want to check your solution with the example data, you 
+need to copy the exampe data from the website and paste it to the example.txt file and replace the "??" string 
+in the the Step1WithExample and Step1WithExample unit tests with the example results from the website.
 
 ```csharp
 
-List<int> Data;
+// Example for AoC2018, Day 1, part 1
 
-protected override void Parse(List<string> data)
-    => Data = data.Select(q => int.Parse(q)).ToList();
+public class Day01Tests
+{
+    // ...
 
-// Solver for AoC2018, day 1
-protected override object Solve1()
-    =>  data.Sum();
+    [Fact]
+    public void Step1WithExample() => new Day01Solver().ExecuteExample1(3); 
+       
+    // ...
+}
 
+public class Day01Solver : SolverBase
+{
+
+    List<int> Data;
+
+    protected override void Parse(List<string> data)
+        => Data = data.Select(q => int.Parse(q)).ToList();
+
+    // Solver for AoC2018, day 1
+    protected override object Solve1()
+        =>  data.Sum();
+
+    // ...
+}
 ```
 
 ## Executing the solvers
 
-To Execute the solvers, you have to use the generated unit tests. You can run them using the Test Explorer 
-in Visual Studio. The unit tests load the input.txt, call the Solve method and save the output to a text 
+To Execute the solvers, you must run the generated unit tests. You can run them using the Test Explorer 
+in Visual Studio. 
+
+The Step1WithExample and Step2WithExample unit tests load the example.txt file, call the Parse and Solve method and compare 
+the result with the expected result. 
+
+The Step1WithPuzzleInput and Step2WithPuzzleInput unit tests load the input.txt, call the Solve method and save the output to a text 
 file called output1.txt or output2.txt.
-
-You can change the name of the input and output filename by passing alternative filename as parameter.
-
-```csharp
-
-[Fact]
-public void RunStep1() => Output.WriteLine(new Day[Day]Solver().ExecutePuzzle1("testinput.txt"));
-
-```
