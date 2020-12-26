@@ -18,7 +18,10 @@ namespace AdventOfCode.Base
             var dayDir = projectDir + @"\Day" + dayStr + "\\";
 
             if (Directory.Exists(dayDir))
-                Console.WriteLine($"Directory {dayDir} was allready initialized");
+            {
+                Console.WriteLine($"Directory {dayDir} was already initialized");
+                return;
+            }
 
             Directory.CreateDirectory(dayDir);
 
@@ -26,11 +29,16 @@ namespace AdventOfCode.Base
             template = template.Replace("[Day]", dayStr);
             File.WriteAllText(dayDir + $"Day{ dayStr}Solver.cs", template);
 
-            var inputFileName = dayDir + "input.txt";
-            File.WriteAllText(inputFileName, "");
+            void CreateInputFile(string fileName)
+            {
+                var inputFileName = dayDir + fileName;
+                File.WriteAllText(inputFileName, "");
 
-            Process.Start(new ProcessStartInfo(inputFileName) { UseShellExecute = true, });
+                Process.Start(new ProcessStartInfo(inputFileName) { UseShellExecute = true, });
+            }
 
+            CreateInputFile("input.txt");
+            CreateInputFile("example.txt");
         }
     }
 }

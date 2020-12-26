@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using Xunit;
 
 namespace AdventOfCode.Base
 {
@@ -20,13 +21,33 @@ namespace AdventOfCode.Base
         }
 
         public string ExecutePuzzle1(string inputFileName = "input.txt", string outputFileName = "output1.txt")
-            => Save(outputFileName, Solve1(Load(inputFileName)));
+        {
+            Parse(Load(inputFileName));
+            return Save(outputFileName, Solve1()?.ToString());
+        }
 
         public string ExecutePuzzle2(string inputFileName = "input.txt", string outputFileName = "output2.txt")
-            => Save(outputFileName, Solve2(Load(inputFileName)));
+        {
+            Parse(Load(inputFileName));
+            return Save(outputFileName, Solve2()?.ToString());
+        }
 
-        protected abstract string Solve1(List<string> data);
+        public void ExecuteExample1(object expectedResult)
+        {
+            Parse(Load("Example.txt"));
+            Assert.Equal(expectedResult, Solve1());
+        }
 
-        protected abstract string Solve2(List<string> data);
+        public void ExecuteExample2(object expectedResult)
+        {
+            Parse(Load("Example.txt"));
+            Assert.Equal(expectedResult, Solve2());
+        }
+
+        protected abstract void Parse(List<string> data);
+
+        protected abstract object Solve1();
+
+        protected abstract object Solve2();
     }
 }
