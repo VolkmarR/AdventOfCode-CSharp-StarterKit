@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using Xunit;
 
 namespace AdventOfCode.Base
 {
@@ -29,6 +30,18 @@ namespace AdventOfCode.Base
         {
             Parse(Load(inputFileName));
             return Save(outputFileName, Solve2()?.ToString());
+        }
+
+        public void ExecuteExample1(object expectedResult)
+        {
+            Parse(Load("Example.txt"));
+            Assert.Equal(expectedResult, Solve1());
+        }
+
+        public void ExecuteExample2(object expectedResult)
+        {
+            Parse(Load("Example.txt"));
+            Assert.Equal(expectedResult, Solve2());
         }
 
         protected abstract void Parse(List<string> data);
