@@ -22,11 +22,14 @@ and implement the Solve1 and Solve2 methods.
 
 ```csharp
 
+List<int> Data;
+
+protected override void Parse(List<string> data)
+    => Data = data.Select(q => int.Parse(q)).ToList();
+
 // Solver for AoC2018, day 1
-protected override string Solve1(List<string> data)
-{
-    return data.Select(q => Int.Parse(q)).Sum().ToString();
-}
+protected override object Solve1()
+    =>  data.Sum();
 
 ```
 
