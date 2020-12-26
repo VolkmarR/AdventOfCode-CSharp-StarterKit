@@ -19,8 +19,8 @@ The generator creates the following:
 
 After initializing a day, you have to copy the input data from the website and paste it to the input.txt file 
 and implement the Solve1 and Solve2 methods. If you want to check your solution with the example data, you 
-need to copy the exampe data from the website and paste it to the example.txt file and replace the "??" string 
-in the the Step1WithExample and Step1WithExample unit tests with the example results from the website.
+need to copy the example data from the website and paste it to the example.txt file and replace the "??" string 
+in the Step1WithExample and Step1WithExample unit tests with the example results from the website.
 
 ```csharp
 
@@ -54,7 +54,7 @@ public class Day01Solver : SolverBase
 
 ## Executing the solvers
 
-To Execute the solvers, you must run the generated unit tests. You can run them using the Test Explorer 
+To execute the solvers, you must run the generated unit tests. You can run them using the Test Explorer 
 in Visual Studio. 
 
 The Step1WithExample and Step2WithExample unit tests load the example.txt file, call the Parse and Solve method and compare 
