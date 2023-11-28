@@ -25,10 +25,7 @@ static class Extensions
 
     public static string[] Split(this string text, StringSplitOptions stringSplitOptions, params string[] separators)
         => text.Split(separators, stringSplitOptions);
-
-    public static string[] Split(this string text, params string[] separators)
-        => text.Split(separators);
-
+    
     public static List<string> ToList(this string item) => new() { item };
     public static int ToInt(this string item) => int.Parse(item);
 
