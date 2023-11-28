@@ -2,14 +2,14 @@
 
 public abstract class SolverBase
 {
-    string DayDirectory => $"{AppContext.BaseDirectory.Substring(0, AppContext.BaseDirectory.IndexOf("bin"))}\\{GetType().Name.Substring(0, 5)}\\";
+    private string DayDirectory => $@"{AppContext.BaseDirectory[..AppContext.BaseDirectory.IndexOf("bin")]}\{GetType().Name[..5]}\";
 
-    List<string> Load(string inputFileName)
-        => File.ReadAllLines(DayDirectory + inputFileName).ToList();
+    private List<string> Load(string inputFileName)
+        => File.ReadAllLines($"{DayDirectory}{inputFileName}").ToList();
 
     string Save(string outputFileName, string data)
     {
-        File.WriteAllText(DayDirectory + outputFileName, data);
+        File.WriteAllText($"{DayDirectory}{outputFileName}", data);
         return data;
     }
 
