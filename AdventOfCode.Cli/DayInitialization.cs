@@ -1,13 +1,14 @@
-﻿namespace AdventOfCode.Base;
+﻿namespace AdventOfCode;
 
 static class DayInitialization
 {
     public static void Execute(int day)
     {
-        var projectDir = AppContext.BaseDirectory.Substring(0, AppContext.BaseDirectory.IndexOf("bin"));
+        var projectDir = AppContext.BaseDirectory[..AppContext.BaseDirectory.IndexOf("bin", StringComparison.Ordinal)];
+        var solutionProjectDir = Path.Combine(projectDir, $"..{Path.DirectorySeparatorChar}AdventOfCode.Solutions");
 
         var dayStr = day.ToString("00");
-        var dayDir = $@"{projectDir}\Day{dayStr}\";
+        var dayDir = $@"{solutionProjectDir}\Day{dayStr}\";
 
         if (Directory.Exists(dayDir))
         {
@@ -17,9 +18,13 @@ static class DayInitialization
 
         Directory.CreateDirectory(dayDir);
 
-        var template = File.ReadAllText($@"{projectDir}Base\solver.txt");
+        CreateInputFile("input.txt");
+        CreateInputFile("example.txt");
+
+        var template = File.ReadAllText($"{projectDir}solver.txt");
         template = template.Replace("[Day]", dayStr);
         File.WriteAllText($"{dayDir}Day{dayStr}Solver.cs", template);
+        return;
 
         void CreateInputFile(string fileName)
         {
@@ -28,8 +33,5 @@ static class DayInitialization
 
             Process.Start(new ProcessStartInfo(inputFileName) { UseShellExecute = true, });
         }
-
-        CreateInputFile("input.txt");
-        CreateInputFile("example.txt");
     }
 }

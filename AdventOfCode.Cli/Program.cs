@@ -1,4 +1,6 @@
-﻿while (true)
+﻿using AdventOfCode;
+
+while (true)
 {
     Console.WriteLine("Which day do you want to initialize? Press enter to cancel.");
     var dayString = Console.ReadLine();
@@ -10,4 +12,6 @@
         DayInitialization.Execute(day);
         return;
     }
+    else
+        Console.WriteLine("Invalid day number");
 }
