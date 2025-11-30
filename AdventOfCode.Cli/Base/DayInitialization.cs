@@ -4,10 +4,11 @@ static class DayInitialization
 {
     public static void Execute(int day)
     {
-        var projectDir = AppContext.BaseDirectory.Substring(0, AppContext.BaseDirectory.IndexOf("bin"));
+        var projectDir = AppContext.BaseDirectory[..AppContext.BaseDirectory.IndexOf("bin", StringComparison.Ordinal)];
+        var solutionProjectDir = Path.Combine(projectDir, $"..{Path.DirectorySeparatorChar}AdventOfCode.Solutions");
 
         var dayStr = day.ToString("00");
-        var dayDir = $@"{projectDir}\Day{dayStr}\";
+        var dayDir = $@"{solutionProjectDir}\Day{dayStr}\";
 
         if (Directory.Exists(dayDir))
         {

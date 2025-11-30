@@ -1,4 +1,4 @@
-﻿namespace AdventOfCode.Base;
+﻿namespace AdventOfCode.Solutions.Common;
 
 static class Extensions
 {
@@ -8,7 +8,7 @@ static class Extensions
             => string.Join(separator, strings);
     }
 
-    extension<T>(Dictionary<T, int> countDictionary)
+    extension<T>(Dictionary<T, int> countDictionary) where T : notnull
     {
         public void IncrementCount(T key)
         {
@@ -17,7 +17,7 @@ static class Extensions
         }
     }
 
-    extension<T>(Dictionary<T, long> countDictionary)
+    extension<T>(Dictionary<T, long> countDictionary) where T : notnull
     {
         public void IncrementCount(T key)
         {
