@@ -1,4 +1,4 @@
-﻿namespace AdventOfCode.Base;
+﻿namespace AdventOfCode;
 
 static class DayInitialization
 {
@@ -18,9 +18,13 @@ static class DayInitialization
 
         Directory.CreateDirectory(dayDir);
 
-        var template = File.ReadAllText($@"{projectDir}Base\solver.txt");
+        CreateInputFile("input.txt");
+        CreateInputFile("example.txt");
+
+        var template = File.ReadAllText($"{projectDir}solver.txt");
         template = template.Replace("[Day]", dayStr);
         File.WriteAllText($"{dayDir}Day{dayStr}Solver.cs", template);
+        return;
 
         void CreateInputFile(string fileName)
         {
@@ -29,8 +33,5 @@ static class DayInitialization
 
             Process.Start(new ProcessStartInfo(inputFileName) { UseShellExecute = true, });
         }
-
-        CreateInputFile("input.txt");
-        CreateInputFile("example.txt");
     }
 }
