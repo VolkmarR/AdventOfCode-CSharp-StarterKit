@@ -2,40 +2,43 @@
 
 static class Extensions
 {
-    public static string Join(this IEnumerable<string> strings, string separator)
-        => string.Join(separator, strings);
-
-    public static void IncrementCount<T>(this Dictionary<T, int> countDictionary, T key)
+    extension(IEnumerable<string> strings)
     {
-        countDictionary.TryGetValue(key, out var current);
-        countDictionary[key] = ++current;
+        public string Join(string separator)
+            => string.Join(separator, strings);
     }
 
-    public static void IncrementCount<T>(this Dictionary<T, long> countDictionary, T key)
+    extension<T>(Dictionary<T, int> countDictionary)
     {
-        countDictionary.TryGetValue(key, out var current);
-        countDictionary[key] = ++current;
+        public void IncrementCount(T key)
+        {
+            countDictionary.TryGetValue(key, out var current);
+            countDictionary[key] = ++current;
+        }
     }
 
-    public static string[] Split(this string text, StringSplitOptions stringSplitOptions, params char[] separators)
-        => text.Split(separators, stringSplitOptions);
-
-    public static string[] Split(this string text, params char[] separators)
-        => text.Split(separators);
-
-    public static string[] Split(this string text, StringSplitOptions stringSplitOptions, params string[] separators)
-        => text.Split(separators, stringSplitOptions);
-    
-    public static List<string> ToList(this string item) => new() { item };
-    public static int ToInt(this string item) => int.Parse(item);
-
-    public static long ToLong(this string item) => long.Parse(item);
-
-    public static string Reverse(this string text)
+    extension<T>(Dictionary<T, long> countDictionary)
     {
-        if (text == null)
-            return null;
+        public void IncrementCount(T key)
+        {
+            countDictionary.TryGetValue(key, out var current);
+            countDictionary[key] = ++current;
+        }
+    }
 
-        return new string(text.ToCharArray().Reverse().ToArray());
+    extension(string text)
+    {
+        public string[] Split(StringSplitOptions stringSplitOptions, params char[] separators)
+            => text.Split(separators, stringSplitOptions);
+
+        public string[] Split(params char[] separators)
+            => text.Split(separators);
+
+        public string[] Split(StringSplitOptions stringSplitOptions, params string[] separators)
+            => text.Split(separators, stringSplitOptions);
+
+        public List<string> ToList() => new() { text };
+        public int ToInt() => int.Parse(text);
+        public long ToLong() => long.Parse(text);
     }
 }
